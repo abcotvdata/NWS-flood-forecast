@@ -26,9 +26,6 @@ library(jsonlite)
 library(devtools)
 library(lubridate)
 
-c("tidyverse", "tidycensus", "readr", "plyr", "stringr", "dplyr", "leaflet", "leaflet.providers", "rgdal", "htmlwidgets", "RCurl", "sp", "Hmisc", "leafgl", "colourvalues", "sf", "leaflet.extras", "tigris", "reactable", "rmarkdown", "htmltools", "knitr", "RJSONIO", "rjson", "jsonlite", "devtools", "lubridate")
-
-
 #locations for flood data
 locations <- readOGR("https://mapservices.weather.noaa.gov/eventdriven/rest/services/water/ahps_riv_gauges/MapServer/15/query?where=0%3D0&objectIds=&time=&resultType=none&outFields=*&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=0&resultRecordCount=&sqlFormat=none&f=pjson")
 
