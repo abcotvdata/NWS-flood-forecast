@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies and packages
         run: Rscript -e 'install.packages(c("tidyverse", "tidycensus", "readr", "plyr", "stringr", "dplyr", "leaflet", "leaflet.providers", "rgdal", "htmlwidgets", "RCurl", "sp", "Hmisc", "leafgl", "colourvalues", "sf", "leaflet.extras", "tigris", "reactable", "rmarkdown", "htmltools", "knitr", "RJSONIO", "rjson", "jsonlite", "devtools", "lubridate"))'
       - name: Get flooding forecast info
-        run: Rscript WPVI-flood-map.Rmd
+        run: Rscript WPVI-flood-map.R
       - name: Commit results
         run: |
           git add -A
