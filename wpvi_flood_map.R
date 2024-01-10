@@ -6,7 +6,6 @@ library(stringr)
 library(dplyr)
 library(leaflet)
 library(leaflet.providers)
-library(rgdal)
 library(htmlwidgets)
 library(RCurl)
 library(sp)
@@ -31,7 +30,7 @@ c("tidyverse", "tidycensus", "readr", "plyr", "stringr", "dplyr", "leaflet", "le
 
 
 #locations for flood data
-locations <- rgdal::readOGR("https://mapservices.weather.noaa.gov/eventdriven/rest/services/water/ahps_riv_gauges/MapServer/15/query?where=0%3D0&objectIds=&time=&resultType=none&outFields=*&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=0&resultRecordCount=&sqlFormat=none&f=pjson")
+locations <- readOGR("https://mapservices.weather.noaa.gov/eventdriven/rest/services/water/ahps_riv_gauges/MapServer/15/query?where=0%3D0&objectIds=&time=&resultType=none&outFields=*&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=0&resultRecordCount=&sqlFormat=none&f=pjson")
 
 #filter locations for places that have minor, moderate, major flood warnings
 locations_clean <- st_as_sf(locations) %>% 
