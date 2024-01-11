@@ -78,9 +78,10 @@ flood_map <-  leaflet() %>%
                    fillOpacity = 0.5,
                    popup = popup
   ) %>% 
-  addLegend(pal = dot_pal, 
-            values = locations_clean$status, 
-            position = "bottomleft", 
+  addLegend(values = locations_clean$status,
+            position = "bottomleft",
+            colors = c("#FFBA00", "#DF5F00", "#BE0000"),
+            labels = c("Minor", "Moderate", "Major"),
             title = "Flood forecast levels") %>% 
   addControl(title, position = "bottomright", className="map-title")
 
