@@ -143,3 +143,23 @@ flood_map <-  leaflet() %>%
 
 
 saveWidget(flood_map, 'wpvi_flood_map.html', selfcontained = TRUE)
+
+ny_flood_map <-  leaflet() %>%
+  addProviderTiles("CartoDB.Positron") %>%
+  setView(-73.9282376, 40.5608211, zoom = 9) %>% 
+  addCircleMarkers(data = locations_clean, ~longitude, ~latitude,
+                   radius = 8,
+                   color = ~dot_pal(status),
+                   stroke = FALSE,
+                   fillOpacity = 0.8,
+                   popup = popup
+  ) %>% 
+  addLegend(values = locations_clean$status, 
+            position = "bottomleft", 
+            colors = c("#ffba00", "#df5f00", "#be0000"), 
+            labels = c("Minor", "Moderate", "Major"),
+            title = "Flood forecast levels") %>% 
+  addControl(title, position = "bottomright", className="map-title")
+
+
+saveWidget(ny_flood_map, 'wabc_flood_map.html', selfcontained = TRUE)
