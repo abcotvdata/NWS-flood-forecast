@@ -126,7 +126,7 @@ popup <- paste0("<b style='font-size: 15px'>",locations_clean$waterbody, " at ",
 
 flood_map <-  leaflet() %>%
   addProviderTiles("CartoDB.Positron") %>%
-  setView(-75.1892169,39.6227914, zoom = 9) %>% 
+  setView(-75.1892169,39.6227914, zoom = 8) %>% 
   addCircleMarkers(data = locations_clean, ~longitude, ~latitude,
                    radius = 8,
                    color = ~dot_pal(status),
