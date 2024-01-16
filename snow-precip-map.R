@@ -63,7 +63,7 @@ dot_pal <- colorFactor(c("#E0FAFF", "#ADF2FF", "#23DCFF", "#005CFF", "#030D9E", 
                        domain = c("Less than half an inch", "0.5-1 inches", "1-3 inches", "3-6 inches", "6-9 inches", "9-12 inches", "A foot or more"), 
                        ordered=TRUE)
 
-popup <- paste0("<b style='font-size: 15px'>",snow_clean$location, ", ", snow_clean$state,"</b><br><br> <span style='font-size: 15px'>Snowfall: <b>" , snow_clean$amount, "</b> inches, as of ", snow_clean$valid_time_pretty, ". <br><br> Notes from NWS: " , snow_clean$remarks_new)
+popup <- paste0("<b style='font-size: 15px'>",snow_clean$location, ", ", snow_clean$state,"</b><br><br> <span style='font-size: 15px'>Snowfall: <b>" , snow_clean$amount, "</b> inches, as of ", snow_clean$valid_time_pretty, ".")
 
 wpvi_snow_map <- leaflet() %>%
   addProviderTiles("CartoDB.Positron") %>%
