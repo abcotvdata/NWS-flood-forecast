@@ -85,5 +85,5 @@ addControl(title, position = "bottomright", className="map-title")
 
 
 
-saveWidget(wpvi_snow_map, 'wpvi_snow_map.html', title = "NWS Snowfall reports - last 24 hours" selfcontained = TRUE)
+saveWidget(wpvi_snow_map, 'wpvi_snow_map.html', title = "NWS Snowfall reports - last 24 hours", selfcontained = TRUE)
 
