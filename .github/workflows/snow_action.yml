@@ -19,7 +19,7 @@ jobs:
           brew install gdal
       - name: Install dependencies and packages
         run: Rscript -e 'install.packages(c("tidyverse", "stringr", "leaflet", "leaflet.providers", "htmlwidgets", "colourvalues", "sf", "leaflet.extras", "tigris", "rmarkdown", "htmltools", "lubridate"))'
-      - name: Get flooding forecast info
+      - name: Get snow info
         run: Rscript snow-precip-map.R
       - name: Commit results
         run: |
