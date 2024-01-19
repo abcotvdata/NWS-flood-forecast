@@ -1,6 +1,6 @@
 on:
     schedule:
-     - cron: '11 0/2 * * *'
+     - cron: '* * * * *'
     workflow_dispatch:
 
 name: Snowfall reports last 24 hours
