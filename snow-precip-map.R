@@ -12,7 +12,7 @@ library(htmltools)
 library(lubridate)
 
 current_date_time <- as.POSIXct(as.numeric(Sys.time()), origin='1970-01-01', tz="EST")
-yesterday_date_time <- current_date_time - 86400
+yesterday_date_time <- current_date_time - 172800
 
 current_date_time_pretty <- as.character(format(current_date_time, '%B %d, %Y - %I:%M %p %Z'))
 
@@ -93,5 +93,5 @@ addControl(title, position = "bottomright", className="map-title")
 
 
 
-saveWidget(wpvi_snow_map, 'wpvi_snow_map.html', title = "NWS Snowfall reports - last 24 hours", selfcontained = TRUE)
+saveWidget(wpvi_snow_map, 'wpvi_snow_map.html', title = "NWS Snowfall reports - last 48 hours", selfcontained = TRUE)
 
