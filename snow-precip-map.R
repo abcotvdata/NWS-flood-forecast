@@ -36,6 +36,13 @@ snow_clean <- st_transform(snow, crs = 4326) %>%
   mutate(remarks_new = case_when(remarks == "" ~ "None",
                                  TRUE ~ remarks))
 
+snow_clean_df_philly <- snow_clean %>% 
+  st_drop_geometry() %>% 
+  select(-color) %>% 
+  filter(state == "PA" | state == "NJ" | state == "DE")
+
+write.csv(snow_clean_df_philly, "output/snow_clean_df_philly.csv", row.names = FALSE)
+
 tag.map.title <- tags$style(HTML("
   .leaflet-control.map-title {
     position: fixed !important;
@@ -45,7 +52,7 @@ tag.map.title <- tags$style(HTML("
     padding: 10px;
     background: rgba(255,255,255,0.75);
     font-style: italic;
-    font-size: 10px;
+    font-size: 16px;
     color: black;
   }
   @media only screen and (max-width: 460px) {
@@ -55,6 +62,7 @@ tag.map.title <- tags$style(HTML("
   }
 "))
 
+
 title <- tags$div(
   tag.map.title, HTML("Source: <a href=\"https://www.weather.gov/source/crh/snowmap.html\" target=\"_blank\">National Weather Service</a>, as of ",current_date_time_pretty,""))
 
@@ -63,13 +71,13 @@ dot_pal <- colorFactor(c("#E0FAFF", "#ADF2FF", "#23DCFF", "#005CFF", "#030D9E", 
                        domain = c("Less than half an inch", "0.5-1 inches", "1-3 inches", "3-6 inches", "6-9 inches", "9-12 inches", "A foot or more"), 
                        ordered=TRUE)
 
-popup <- paste0("<b style='font-size: 15px'>",snow_clean$location, ", ", snow_clean$state,"</b><br><br> <span style='font-size: 15px'>Snowfall: <b>" , snow_clean$amount, "</b> inches, as of ", snow_clean$valid_time_pretty, ".")
+popup <- paste0("<b style='font-size: 28px'>",snow_clean$location, ", ", snow_clean$state,"</b><br><br> <span style='font-size: 25px'>Snowfall: <b>" , snow_clean$amount, "</b> inches, as of ", snow_clean$valid_time_pretty, ".")
 
 wpvi_snow_map <- leaflet() %>%
   addProviderTiles("CartoDB.Positron") %>%
   setView(-75.1892169,39.6227914, zoom = 8) %>%
   addCircleMarkers(data = snow_clean,
-                   radius = 8,
+                   radius = 13,
                    color = ~dot_pal(color_bin),
                    stroke = FALSE,
                    fillOpacity = 0.8,
